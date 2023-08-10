@@ -7,12 +7,14 @@
 // Execute `rustlings hint move_semantics2` or use the `hint` watch subcommand
 // for a hint.
 
-// I AM NOT DONE
-
 fn main() {
     let vec0 = Vec::new();
 
-    let mut vec1 = fill_vec(vec0);
+    // 👇 the fastest solution
+    // other ways:
+    // 1. fill_vec accepting a reference to vec0 and then doing vec0.clone inside the function body
+    // 2. fill_vec accepting a mutable reference to vec0, not returning anything and making vec1 redundant
+    let mut vec1 = fill_vec(vec0.clone());
 
     println!("{} has length {}, with contents: `{:?}`", "vec0", vec0.len(), vec0);
 
