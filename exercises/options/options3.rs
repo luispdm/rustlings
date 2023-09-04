@@ -20,7 +20,7 @@ fn main() {
     /*
      * Another solution is: "match y { Some (ref p)... }"
      * 
-     * From the docs (difference between & and ref) https://doc.rust-lang.org/std/keyword.ref.html#-vs-ref :
+     * Difference between & and ref from the docs https://doc.rust-lang.org/std/keyword.ref.html#-vs-ref :
      * "&Foo matches different objects than Foo does. Some(ref foo) matches the same objects as Some(foo)."
      */
 }
