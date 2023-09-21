@@ -15,7 +15,7 @@ pub fn capitalize_first(input: &str) -> String {
     let mut c = input.chars();
     match c.next() {
         None => String::new(),
-        Some(first) => ???,
+        Some(first) => first.to_uppercase().to_string() + c.as_str(),
     }
 }
 
@@ -24,7 +24,7 @@ pub fn capitalize_first(input: &str) -> String {
 // Return a vector of strings.
 // ["hello", "world"] -> ["Hello", "World"]
 pub fn capitalize_words_vector(words: &[&str]) -> Vec<String> {
-    vec![]
+    words.iter().map(|w| capitalize_first(w)).collect()
 }
 
 // Step 3.
@@ -32,7 +32,14 @@ pub fn capitalize_words_vector(words: &[&str]) -> Vec<String> {
 // Return a single string.
 // ["hello", " ", "world"] -> "Hello World"
 pub fn capitalize_words_string(words: &[&str]) -> String {
-    String::new()
+    /*
+     * "collect" can return anything as long as the function specifies a return type.
+     * "capitalize_words_vector" returns a vector while this function
+     * returns a string, and they both use the collect method!
+     */
+    words.iter().map(|c| capitalize_first(c)).collect()
+    // this works too:
+    // capitalize_words_vector(words).concat()
 }
 
 #[cfg(test)]
